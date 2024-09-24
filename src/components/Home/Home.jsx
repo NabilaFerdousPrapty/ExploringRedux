@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import AddTask from '../AddTasks/AddTasks';
-
+import { useSelector } from 'react-redux';
 
 const Home = () => {
     const [uploadedTasks, setUploadedTasks] = useState([]);
     const [showForm, setShowForm] = useState(false); // State to control form visibility
-
+    const user = useSelector((state) => state.auth.user);
     // Function to handle task upload
+    console.log(user);
+    
     const handleTaskUpload = (newTask) => {
         // Add timestamps to the task data
         const taskWithDate = {
